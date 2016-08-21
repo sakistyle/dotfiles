@@ -90,6 +90,7 @@ NeoBundle       'scrooloose/nerdcommenter', {
       \           'depends': ['scrooloose/nerdtree'],
       \         }
 NeoBundle       'scrooloose/syntastic'
+NeoBundle       'pmsorhaindo/syntastic-local-eslint.vim'
 NeoBundleLazy   'thinca/vim-quickrun', {
       \           'autoload': {
       \             'mappings': [['n', '\r']],
