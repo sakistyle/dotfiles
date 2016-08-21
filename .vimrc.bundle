@@ -271,7 +271,7 @@ NeoBundleLazy   'arnaud-lb/vim-php-namespace', {
       \             'filetypes': ['php'],
       \           }
       \         }
-NeoBundle       'StanAngeloff/php.vim'
+NeoBundleLazy   'StanAngeloff/php.vim', {
       \           'autoload': {
       \             'filetypes': ['php'],
       \           }
