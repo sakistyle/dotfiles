@@ -13,7 +13,7 @@ do
 
   echo -n "    ✔  $HOME/${dotfile} ... [ "
 
-  ln -nfs "$DOTPATH/$dotfile" $HOME/$dotfile
+  ln -nfs $DOTPATH/$dotfile $HOME/$dotfile
   ret=$?
 
   if [ $ret -eq 0 ]; then
