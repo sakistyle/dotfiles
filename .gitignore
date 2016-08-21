@@ -5,6 +5,9 @@
 ### Linux ###
 *~
 
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
 # KDE directory preferences
 .directory
 
@@ -13,7 +16,7 @@
 
 
 ### OSX ###
-.DS_Store
+*.DS_Store
 .AppleDouble
 .LSOverride
 
@@ -31,6 +34,7 @@ Icon
 .TemporaryItems
 .Trashes
 .VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 
 # Directories potentially created on remote AFP share
 .AppleDB
@@ -92,12 +96,18 @@ $RECYCLE.BIN/
 
 
 ### Vim ###
+# swap
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
-*.un~
+# session
 Session.vim
+# temporary
 .netrwhist
 *~
+# auto-generated tag files
+tags
+# plugin management directory
+.vim/bundle/*
 
 
 ### Emacs ###
@@ -133,7 +143,16 @@ tramp
 
 # cask packages
 .cask/
+dist/
 
+# Flycheck
+flycheck_*.el
+
+# server auth directory
+/server/
+
+# projectiles files
+.projectile
 
 ### SublimeText ###
 # cache files for sublime text
@@ -150,3 +169,16 @@ tramp
 
 # sftp configuration file
 sftp-config.json
+
+# Package control specific files
+Package Control.last-run
+Package Control.ca-list
+Package Control.ca-bundle
+Package Control.system-ca-bundle
+Package Control.cache/
+Package Control.ca-certs/
+bh_unicode_properties.cache
+
+# Sublime-github package stores a github token in this file
+# https://packagecontrol.io/packages/sublime-github
+GitHub.sublime-settings
