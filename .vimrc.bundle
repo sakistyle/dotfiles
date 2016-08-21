@@ -242,21 +242,9 @@ NeoBundleLazy   'othree/html5.vim', {
       \             'filetypes': ['html'],
       \           }
       \         }
-NeoBundleLazy   'slim-template/vim-slim', {
-      \           'autoload': {
-      \             'filetypes': ['slim'],
-      \           }
-      \         }
-NeoBundleLazy   'tpope/vim-haml', {
-      \           'autoload': {
-      \             'filetypes': ['haml'],
-      \           }
-      \         }
-NeoBundleLazy   'digitaltoad/vim-pug', {
-      \           'autoload': {
-      \             'filetypes': ['jade'],
-      \           }
-      \         }
+NeoBundle       'slim-template/vim-slim'
+NeoBundle       'tpope/vim-haml'
+NeoBundle       'digitaltoad/vim-pug'
 
 "" Markdown
 NeoBundleLazy   'tpope/vim-markdown', {
@@ -283,11 +271,11 @@ NeoBundleLazy   'arnaud-lb/vim-php-namespace', {
       \             'filetypes': ['php'],
       \           }
       \         }
-"NeoBundle       'StanAngeloff/php.vim'
-"  \               'autoload': {
-"  \                 'filetypes': ['php'],
-"  \               }
-"  \             }
+NeoBundle       'StanAngeloff/php.vim'
+      \           'autoload': {
+      \             'filetypes': ['php'],
+      \           }
+      \         }
 
 "" Python
 NeoBundleLazy   'davidhalter/jedi-vim', {
