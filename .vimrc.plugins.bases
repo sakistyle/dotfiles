@@ -411,7 +411,7 @@ let g:syntastic_check_on_wq = 0
 " for Coffeescript
 let g:syntastic_coffee_checkers = ['coffeelint']
 " for CSS
-let g:syntastic_css_checkers = ['csslint', 'stylelint']
+let g:syntastic_css_checkers = ['stylelint']
 " for Go
 let g:syntastic_go_checkers = ['go', 'golint', 'govet']
 " for JavaScript
@@ -435,7 +435,16 @@ let g:syntastic_sass_checkers = ['sass']
 " for Scala
 let g:syntastic_scala_checkers = ['scalastyle']
 " for Scss
-let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_scss_checkers = ['scss_lint', 'stylelint']
+
+" cslint
+let s:csslint_path = system('PATH=$(npm bin):$PATH && which csslint')
+let b:syntastic_css_csslint_exec = substitute(s:csslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+
+" stylelint
+let s:stylelint_path = system('PATH=$(npm bin):$PATH && which stylelint')
+let b:syntastic_css_stylelint_exec = substitute(s:stylelint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+let b:syntastic_scss_stylelint_exec = substitute(s:stylelint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
 
 "------------------------------------
