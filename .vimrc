@@ -50,10 +50,10 @@ source ~/.dotfiles/.vimrc.editing
 " エンコーディング設定
 source ~/.dotfiles/.vimrc.encoding
 
-" その他設定
-source ~/.dotfiles/.vimrc.misc
-
 " プラグイン設定
 source ~/.dotfiles/.vimrc.plugins
+
+" その他設定
+source ~/.dotfiles/.vimrc.misc
 
 " vim:fdm=marker expandtab fdc=3 ft=vim ts=2 sw=2 sts=2:
