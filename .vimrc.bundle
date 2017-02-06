@@ -202,6 +202,11 @@ NeoBundleLazy   'mxw/vim-jsx', {
       \             'filetypes': ['javascript'],
       \           }
       \         }
+NeoBundleLazy   'leafgarland/typescript-vim', {
+      \           'autoload': {
+      \             'filetypes': ['typescript'],
+      \           }
+      \         }
 """ Lint
 "NeoBundle       'hallettj/jslint'
 "NeoBundle       'wookiehangover/jshint'
