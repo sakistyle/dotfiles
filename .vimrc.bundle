@@ -196,6 +196,12 @@ NeoBundleLazy   'othree/yajs.vim', {
       \             'filetypes': ['javascript'],
       \           }
       \         }
+""" Vue.js
+NeoBundleLazy   'posva/vim-vue', {
+      \           'autoload': {
+      \             'filetypes': ['javascript'],
+      \           }
+      \         }
 """ React.js
 NeoBundleLazy   'mxw/vim-jsx', {
       \           'autoload': {
