@@ -126,13 +126,9 @@ NeoBundle       'kchmck/vim-coffee-script', {
 
 "" CSS/Scss/Sass
 NeoBundle       'gorodinskiy/vim-coloresque'
-NeoBundleLazy   'hail2u/vim-css3-syntax', {
-      \           'autoload': {
-      \             'filetypes': ['css', 'scss', 'sass'],
-      \           }
-      \         }
-"NeoBundle       'cakebaker/scss-syntax.vim'
-"NeoBundle       'bolasblack/csslint'
+NeoBundle       'hail2u/vim-css3-syntax'
+NeoBundle       'bolasblack/csslint'
+NeoBundle       'cakebaker/scss-syntax.vim'
 
 "" Dockerfile
 NeoBundleLazy   'ekalinin/Dockerfile.vim', {
@@ -171,10 +167,29 @@ NeoBundleLazy   'fatih/vim-go', {
 "  \                 'filetypes': ['haskell'],
 "  \               }
 "  \             }
-"NeoBundle       'ujihisa/neco-ghc'
-"NeoBundle       'eagletmt/ghcmod-vim'
+"NeoBundleLazy   'ujihisa/neco-ghc', {
+"  \               'autoload': {
+"  \                 'filetypes': ['haskell'],
+"  \               }
+"  \             }
+"NeoBundleLazy   'eagletmt/ghcmod-vim', {
+"  \               'autoload': {
+"  \                 'filetypes': ['haskell'],
+"  \               }
+"  \             }
 
 "" JavaScript/ECMAScript
+NeoBundleLazy   'pangloss/vim-javascript', {
+      \           'autoload': {
+      \             'filetypes': ['javascript'],
+      \           }
+      \         }
+NeoBundleLazy   'heavenshell/vim-jsdoc', {
+      \           'autoload': {
+      \             'filetypes': ['javascript'],
+      \           }
+      \         }
+
 """ Node.js
 NeoBundleLazy   'moll/vim-node', {
       \           'autoload': {
@@ -202,6 +217,7 @@ NeoBundleLazy   'posva/vim-vue', {
       \             'filetypes': ['javascript'],
       \           }
       \         }
+
 """ React.js
 NeoBundleLazy   'mxw/vim-jsx', {
       \           'autoload': {
@@ -213,19 +229,9 @@ NeoBundleLazy   'leafgarland/typescript-vim', {
       \             'filetypes': ['typescript'],
       \           }
       \         }
-""" Lint
-"NeoBundle       'hallettj/jslint'
-"NeoBundle       'wookiehangover/jshint'
-NeoBundleLazy   'pangloss/vim-javascript', {
-      \           'autoload': {
-      \             'filetypes': ['javascript'],
-      \           }
-      \         }
-NeoBundleLazy   'heavenshell/vim-jsdoc', {
-      \           'autoload': {
-      \             'filetypes': ['javascript'],
-      \           }
-      \         }
+
+""" Vue.js
+NeoBundle       'posva/vim-vue'
 
 "" JSON
 NeoBundleLazy   'leshill/vim-json', {
