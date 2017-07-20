@@ -127,7 +127,6 @@ NeoBundle       'kchmck/vim-coffee-script', {
 "" CSS/Scss/Sass
 NeoBundle       'gorodinskiy/vim-coloresque'
 NeoBundle       'hail2u/vim-css3-syntax'
-NeoBundle       'bolasblack/csslint'
 NeoBundle       'cakebaker/scss-syntax.vim'
 
 "" Dockerfile
@@ -254,11 +253,6 @@ NeoBundleLazy   'mattn/emmet-vim', {
       \           'autoload': {
       \             'filetypes': ['html', 'eruby', 'jsp', 'xml', 'css', 'scss', 'sass', 'coffee'],
       \             'commands': ['<Plug>ZenCodingExpandNormal']
-      \           }
-      \         }
-NeoBundleLazy   'amirh/HTML-AutoCloseTag', {
-      \           'autoload': {
-      \             'filetypes': ['html'],
       \           }
       \         }
 
