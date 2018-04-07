@@ -293,6 +293,13 @@ case "${TERM}" in
     ;;
 esac
 
+#
+# Editors
+#
+export EDITOR='vim' # nanoからvimに変更
+export VISUAL='vim' # nanoからvimに変更
+export PAGER='less'
+
 
 ## load user .zshrc configuration file
 #
