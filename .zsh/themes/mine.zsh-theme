@@ -50,7 +50,7 @@ prompt_segment() {
 # - am I root
 # - are there background jobs?
 prompt_status() {
-  local symbols=()
+  local symbols=""
 
   [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$CROSS"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
