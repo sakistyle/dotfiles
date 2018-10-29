@@ -392,6 +392,26 @@ map <Leader>x, c<space>
 ""未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
 
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
+
 
 "------------------------------------
 " syntastic
@@ -440,6 +460,11 @@ let g:syntastic_sass_checkers = ['sass']
 let g:syntastic_scala_checkers = ['scalastyle']
 " for Scss
 let g:syntastic_scss_checkers = ['scss_lint', 'stylelint']
+
+let g:syntastic_error_symbol='✗'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_warning_symbol = '⚠'
 
 
 "------------------------------------

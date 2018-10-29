@@ -106,9 +106,9 @@ setopt hist_ignore_space
 
 ## Completion configuration
 #
-fpath=(${HOME}/.zsh/functions/Completion ${fpath})
+fpath=(/usr/local/opt/zsh-completion/share/zsh-completions ${fpath})
 autoload -Uz compinit
-compinit
+compinit -u
 
 
 ## zsh editor
