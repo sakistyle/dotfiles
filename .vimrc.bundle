@@ -212,11 +212,11 @@ NeoBundleLazy   'othree/yajs.vim', {
       \         }
 
 """ React.js
-NeoBundleLazy   'mxw/vim-jsx', {
-      \           'autoload': {
-      \             'filetypes': ['javascript'],
-      \           }
-      \         }
+"NeoBundleLazy   'mxw/vim-jsx', {
+"      \           'autoload': {
+"      \             'filetypes': ['javascript'],
+"      \           }
+"      \         }
 NeoBundleLazy   'leafgarland/typescript-vim', {
       \           'autoload': {
       \             'filetypes': ['typescript'],
