@@ -2,18 +2,19 @@
 
 DOTPATH=~/.dotfiles
 
-echo "[info] Create a symbolic link."
+echo "[info] Create symbolic links."
 for dotfile in .?*
 do
   # exclude dot files.
-  [ $dotfile = '..' ]       && continue
-  [ $dotfile = '.git' ]     && continue
-  [[ $dotfile =~ .vimrc. ]] && continue
-  [[ $dotfile =~ .bck$ ]]   && continue
+  [[ ${dotfile} = '..' ]]     && continue
+  [[ ${dotfile} = '.git' ]]   && continue
+  [[ ${dotfile} =~ .vimrc. ]] && continue
+  [[ ${dotfile} =~ .bck$ ]]   && continue
 
-  echo -n "    ✔  $HOME/${dotfile} ... [ "
+  echo -n "    ✔  ${HOME}/${dotfile} ... [ "
 
-  ln -nfs $DOTPATH/$dotfile $HOME/$dotfile
+  [[ -f ${HOME}/${dotfile} ]] && mv ${HOME}/${dotfile} ${HOME}/${dotfile}.bck
+  ln -nfs ${DOTPATH}/${dotfile} ${HOME}/${dotfile}
   ret=$?
 
   if [ $ret -eq 0 ]; then
@@ -25,7 +26,7 @@ do
 done
 
 # install TmuxPluginManager
-[ ! -f ~/.tmux/plugins ] && mkdir -p ~/.tmux/plugins && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && tmux source ~/.tmux.conf
+[ ! -d ~/.tmux/plugins ] && mkdir -p ~/.tmux/plugins && [ ! -d ~/.tmux/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && tmux source ~/.tmux.conf
 
 # install NeoBundle
-[ ! -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle && git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim && echo "you should run following command to setup plugins ->  vim -c ':NeoBundleInstall'"
+[ ! -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle && git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim && echo "you should run following command to setup plugins ->  vim -c ':NeoBundleInstall'"

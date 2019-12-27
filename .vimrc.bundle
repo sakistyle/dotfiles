@@ -329,6 +329,19 @@ NeoBundleLazy   'derekwyatt/vim-scala', {
       \           }
       \         }
 
+"" Rust
+NeoBundleLazy   'rust-lang/rust.vim', {
+      \           'autoload': {
+      \             'filetypes': ['rust'],
+      \           }
+      \         }
+NeoBundleLazy   'racer-rust/vim-racer', {
+      \           'autoload': {
+      \             'filetypes': ['rust'],
+      \           }
+      \         }
+
+
 "" XML/[X]HTML/SGML/XSLT
 NeoBundleLazy   'othree/xml.vim', {
       \           'autoload': {
