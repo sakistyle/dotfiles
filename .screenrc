@@ -1,0 +1,100 @@
+#*************************************************
+#
+#                   .screenrc
+#
+#*************************************************
+
+#*****************************
+#   prefix key [Ctrl]-j
+#*****************************
+escape ^Jj
+
+
+#*****************************
+#   General
+#*****************************
+
+startup_message off
+vbell           off
+msgminwait      0
+autodetach      on
+defscrollback   100000
+
+
+#*****************************
+#   List window
+#*****************************
+
+#hardstatus alwayslastline "%{= gk}[%m/%d %02c:%s] %{gW} %-w%{= wk}%n %t%{-}%+w %=%{gk}$USER@$HOSTNAME[$LANG] (%l) "
+#caption always "%{= wb} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wk} [%l] %{=b wb}%y/%m/%d(%D) %{=b wm}%c"
+#caption always "%{Yb}[%Y-%02m-%02d %02c:%02s] %{k}|%{G} %l %{k}|%{W} %-w%{+b}%n %t%{-b}%+w"
+#caption always "%?%F%{= wg}%:%{= ww}%? %-w%{=bu dr}%n %t%{-}%+w %= %?%F%{=b .b}%:%{..}%?%y/%m/%d(%D) %?%F%{wm}%:%{..}%?%c"
+#caption always "%{Yb}[%Y-%02m-%02d %02c:%02s] %{k}  |  %{G} %l %{k}  |  %{=b bw}%-w%{=bu bm}%n %t%{-}%+w"
+caption always "%{Yb} %{=b bc} %l %{k}  |  %{=b bw}%-w%{=bu br}%n %t%{-}%+w  %=  %{=b bg}[%Y-%02m-%02d %02c:%02s]"
+
+
+#*****************************
+#   256 colors
+#*****************************
+
+#defbce             on
+term               xterm-256color
+#termcapinfo xterm* 'Co#256:pa#32767:AB=\E[48;5;%dm:AF=\E[38;5;%dm:'
+#termcapinfo kterm* 'Co#256:pa#32767:AB=\E[48;5;%dm:AF=\E[38;5;%dm:'
+
+
+#*****************************
+#   Resize Window
+#*****************************
+
+termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+termcapinfo kterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+
+#*****************************
+#   Encoding
+#*****************************
+
+defutf8 on
+defkanji utf-8
+defencoding utf-8
+encoding utf-8
+
+
+#*****************************
+#   Key Bindings
+#*****************************
+
+bind n screen
+bind h prev
+bind j next
+bind l windowlist
+
+
+#*****************************
+#   Default Window
+#*****************************
+
+source ~/.zshrc
+
+# Create 4 screens on startup
+screen -t vi 1
+screen -t vi 2
+screen -t db 3
+screen -t server 4
+screen -t bash 5
+screen -t root 9
+select 1
+
+
+#*****************************
+#   Scroll
+#*****************************
+termcapinfo xterm* ti@:te@
+
+
+#*****************************
+# Make the output buffer large for (fast) xterms.
+#*****************************
+termcapinfo xterm* OL=10000
+

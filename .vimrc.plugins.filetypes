@@ -1,0 +1,162 @@
+"-------------------------------------------------------------------------------
+" プラグインごとの設定
+"-------------------------------------------------------------------------------
+
+"------------------------------------
+" emmet-vim
+"------------------------------------
+let g:use_emmet_complete_tag = 1
+let g:user_emmet_settings = {
+      \ 'lang' : 'ja',
+      \ 'html' : {
+      \   'indentation' : '  '
+      \ }}
+
+
+"------------------------------------
+" vim-coffee-script
+"------------------------------------
+autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
+
+
+"------------------------------------
+" vim-css-color
+"------------------------------------
+let g:cssColorVimDoNotMessMyUpdatetime = 1
+
+
+"------------------------------------
+" vim-css3-syntax
+"------------------------------------
+augroup VimCSS3Syntax
+  autocmd!
+
+  autocmd FileType css setlocal iskeyword+=-
+  autocmd FileType sass setlocal iskeyword+=-
+  autocmd FileType scss setlocal iskeyword+=-
+augroup END
+
+
+"------------------------------------
+" vim-go
+"------------------------------------
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+set completeopt=menu,preview
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_autosave = 0
+let g:go_play_open_browser = 0
+let g:go_bin_path = expand("~/.go/bin")
+
+
+"------------------------------------
+" vim-node
+"------------------------------------
+autocmd User Node
+  \ if &filetype == "javascript" |
+  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
+  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
+  \ endif
+
+
+"------------------------------------
+" vim-php-namespace
+"------------------------------------
+inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+noremap <Leader>u :call PhpInsertUse()<CR>
+inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
+noremap <Leader>e :call PhpExpandClass()<CR>
+
+
+"------------------------------------
+" jedi-vim
+"------------------------------------
+let s:hooks = neobundle#get_hooks("jedi-vim")
+function! s:hooks.on_source(bundle)
+  " jediにvimの設定を任せると'completeopt+=preview'するので
+  " 自動設定機能をOFFにし手動で設定を行う
+  let g:jedi#auto_vim_configuration = 0
+  " 補完の最初の項目が選択された状態だと使いにくいためオフにする
+  let g:jedi#popup_select_first = 0
+  " quickrunと被るため大文字に変更
+  let g:jedi#rename_command = '<Leader>R'
+  " gundoと被るため大文字に変更 (2013-06-24 10:00 追記）
+  let g:jedi#goto_command = '<Leader>G'
+endfunction
+
+
+"------------------------------------
+" vim-rails
+"------------------------------------
+let g:rails_some_option = 1
+let g:rails_level = 4
+let g:rails_syntax = 1
+let g:rails_statusline = 1
+let g:rails_url='http://localhost:3000'
+let g:rails_subversion=0
+" let g:dbext_default_SQLITE_bin = 'mysql2'
+let g:rails_default_file='config/database.yml'
+" let g:rails_ctags_arguments = ''
+function! SetUpRailsSetting()
+  nmap <buffer><C-C> <Nop>
+  imap <buffer><C-C> <Nop>
+  map <buffer><C-_><C-C> <Nop>
+
+  nmap <buffer><Space>r :R<CR>
+  nmap <buffer><Space>a :A<CR>
+  nmap <buffer><Space>m :Rmodel<Space>
+  nmap <buffer><Space>c :Rcontroller<Space>
+  nmap <buffer><Space>v :Rview<Space>
+  nmap <buffer><Space>s :Rspec<Space>
+  nmap <buffer><Space>p :Rpreview<CR>
+  nmap <buffer><Space>t :Runittest<CR>
+  au FileType ruby,eruby,ruby.rspec let g:neocomplcache_dictionary_filetype_lists = {
+        \'ruby' : $HOME.'/.vim/dict/rails.dict',
+        \'eruby' : $HOME.'/.vim/dict/rails.dict'
+        \}
+  setl dict+=~/.vim/dict/rails.dict
+  setl dict+=~/.vim/dict/ruby.dict
+endfunction
+autocmd User Rails call SetUpRailsSetting()
+
+
+"------------------------------------
+" vim-vue
+"------------------------------------
+autocmd FileType vue syntax sync fromstart
+
+
+"------------------------------------
+" vim-vue-syntastic
+"------------------------------------
+let g:syntastic_vue_checkers = ['eslint']
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+  let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+  let g:syntastic_javascript_eslint_exec = local_eslint
+  let g:syntastic_vue_eslint_exec = local_eslint
+endif
+
+" vim:fdm=marker expandtab fdc=3 ft=vim ts=2 sw=2 sts=2:

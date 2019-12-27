@@ -1,0 +1,25 @@
+# viキーバインド
+set editing-mode vi
+set keymap vi-insert
+
+# チルダをタブにより展開
+set expand-tilde on
+
+# タブ補完時、大文字小文字無視
+$if Bash
+set completion-ignore-case on
+$endif
+
+# コンソールの横幅をあふれたとき自動スクロール
+set horizontal-scroll-mode on
+
+# 日本語関係
+set meta-flag on
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# ヒストリー補完機能を Ctrl+N, Ctrl+P に割り当てる
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+
